@@ -7,12 +7,6 @@ const app = require("../app");
 
 var csrfToken;
 
-import {
-    addLesson,
-    getLessonInfo,
-    updateLesson,
-    deleteLesson,
-} from '../public/js/admin/lesson';
 
 function extractCSRFToken(html) {
   const $ = cheerio.load(html);
@@ -23,7 +17,7 @@ function extractCSRFToken(html) {
 beforeAll(async () => {
     await mongoose.connect("mongodb://localhost:27017/test");
     await mongoose.connection.db.dropDatabase();
-    User.createRoot();
+    await User.createRoot();
 });
 
 beforeEach(function (done) {
